@@ -28,7 +28,7 @@ class TsvSource extends DataSource {
  * @var array
  */
     public $config = array(
-        'root'   => '/tmp/csv',
+        'root'   => '/tmp/tsv',
         'header' => true 
     );
 
@@ -77,7 +77,7 @@ class TsvSource extends DataSource {
  * @return mixed
  */
     public function read(Model $model, $queryData = array(), $recursive = null) {
-        $path = sprintf('%s/%s.csv', $this->config['root'], $model->table);
+        $path = sprintf('%s/%s.tsv', $this->config['root'], $model->table);
 
         $results = array();
         foreach (file($path) as $lk => $lv) {
